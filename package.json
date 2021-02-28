@@ -1,0 +1,20 @@
+{
+  "name": "dicty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "electron .",
+    "dfs": "npm rebuild --runtime=electron --target=11.3.0 --disturl=https://atom.io/download/atom-shell --abi=85"
+  },
+  "devDependencies": {
+    "electron": "^11.3.0"
+  },
+  "dependencies": {
+    "robotjs": "https://github.com/octalmage/robotjs.git",
+    "ws": "^7.4.3"
+  }
+}
