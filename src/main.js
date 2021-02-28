@@ -33,7 +33,30 @@ function createWindow() {
         w.send("Hello interface!");
     });
 }
-electron_1.app.whenReady().then(createWindow);
+const createToolbar = () => {
+    const win = new electron_1.BrowserWindow({
+        show: false,
+        transparent: true,
+        frame: false,
+        // An electron bug makes the bgcolor white on navigation/reload for #000000 and #00000000
+        backgroundColor: '#00ffffff',
+        // skipTaskbar: true,
+        hasShadow: false,
+        width: 150,
+        height: 150,
+        alwaysOnTop: true,
+        webPreferences: {
+            nodeIntegration: true
+        }
+    });
+    win.loadFile('src/toolbar/toolbar.html');
+    console.log('initialized');
+    win.on('ready-to-show', () => {
+        win.show();
+        console.log('showing');
+    });
+};
+electron_1.app.whenReady().then(createWindow).then(createToolbar);
 electron_1.app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         electron_1.app.quit();
