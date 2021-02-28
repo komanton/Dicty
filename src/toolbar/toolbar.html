@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Speech Toolbar</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+</head>
+
+<body style="background: white;">
+  <button onclick="myFunction()">Try it</button>
+
+  <script>
+    const socket = new WebSocket("ws://localhost:5857");
+    socket.onmessage = function (event) {
+      var data = event.data
+      alert(data)
+      //document.getElementById("storage").innerHTML = data
+    }
+    socket.onopen = function () {
+      //socket.send('Hello server!')
+    }
+  </script>
+</body>
+
+</html>

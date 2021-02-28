@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+import { app, BrowserWindow } from 'electron';
 const WebSocket = require("ws")
 const wss = new WebSocket.Server( { port: 5857 } )
 // Type "Hello World" then press enter.
@@ -14,14 +14,14 @@ function createWindow () {
     }
   })
 
-  win.loadFile('index.html')
+  win.loadFile('src/settings/settings.html')
   // setInterval(function(){
   //   // Type "Hello World".
   //   robot.typeString("Hello world!");
   // }, 3000);
 
-  wss.on('connection', function (w) {
-    w.on( 'message' , function (data)  {
+  wss.on('connection', function (w: any) {
+    w.on( 'message' , function (data: any)  {
          console.log(data)
          // robot.typeStringDelayed(data,0);
          for(const s of data) { 
