@@ -10,7 +10,8 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      enableRemoteModule: true,
     }
   })
 
@@ -45,11 +46,12 @@ const createToolbar = () => {
     backgroundColor: '#00ffffff',
     // skipTaskbar: true,
     hasShadow: false,
-    width: 150,
-    height: 150,
+    width: 85,
+    height: 85,
     alwaysOnTop: true,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      enableRemoteModule: true,
     }
   })
 
